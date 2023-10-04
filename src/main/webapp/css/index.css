@@ -1,0 +1,99 @@
+@font-face {
+    font-family: "sans-serif";
+}
+*{
+    font-family: 'Arial', fantasy;
+    font-size: 27px;
+}
+
+body {
+    display: inline;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #605CB1;
+    color: #91FD7E;
+}
+header{
+    font-family: serif;
+    color: #91FD7E;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+table{
+    border-collapse: separate;
+    border: none;
+    width: 300px;
+}
+
+button {
+    margin-left: 85%;
+    margin-top: 30px;
+    background-color: #605CB1;
+    border: 2px solid #91FD7E;
+
+
+    text-align: center;
+    color: #91FD7E;
+    width: auto;
+    padding: 0.5em;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+button:hover{
+    background-color: #91FD7E;
+    border: 2px solid #605CB1;
+
+    color: #605CB1;
+
+}
+#X_input{
+    margin-left: 8%;
+    margin-top: 15px;
+    text-align: center;
+    border: 2px solid #605CB1;
+    margin-bottom: 20px;
+}
+#R_input{
+    width: 20%;
+    height: 10%;
+    margin-left: 8%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: 2px solid #605CB1;
+}
+#Y_input{
+    width: 20%;
+    height: 10%;
+    margin-left: 8%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: 2px solid #605CB1;
+}
+
+
+input[type="text"]{
+    margin-top: 1.5%;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #605CB1;
+}
+input[type="radio"] {
+    transform: scale(2);
+    margin-right: 15%;
+    margin-top: 15px;
+
+    border: 2px solid #605CB1;
+}
+.graph{
+    position: absolute;
+    margin-left: 50%;
+    bottom: 200px;
+
+}
+.label{
+    margin-top: 30px;
+    margin-left: 200px;
+}
