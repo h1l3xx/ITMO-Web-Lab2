@@ -51,9 +51,10 @@
 <div>
   <button id="clearButton"><label>Очистить</label></button>
 </div>
-<div id = resultContainer class="resultTable">
-  <span>Тут будут результаты.</span>
-</div>
-<script src="js/Main.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/Canvas.js"></script>
+<script src="js/Dot.js"></script>
+<script src="js/Validator.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

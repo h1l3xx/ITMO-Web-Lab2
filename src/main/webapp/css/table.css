@@ -1,0 +1,42 @@
+*{
+    font-family: 'Arial', fantasy;
+    font-size: 27px;
+}
+
+body {
+    display: inline;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #605CB1;
+    color: #91FD7E;
+}
+header{
+    font-family: serif;
+    color: #91FD7E;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+table{
+    border-collapse: separate;
+    border: none;
+    width: 300px;
+}
+
+.grid-table {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.grid-row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.lose {
+    color: #FF0000;
+}
+.success {
+    color : darkgreen;
+}
