@@ -1,4 +1,4 @@
-package com.main.weblab2;
+package com.main.weblab2.servlets;
 
 import java.io.*;
 

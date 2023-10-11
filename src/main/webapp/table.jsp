@@ -1,6 +1,7 @@
-<%@ page import="com.main.weblab2.Dot" %>
+<%@ page import="com.main.weblab2.utils.Dot" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.util.LinkedList" %>
+<%@ page import="com.main.weblab2.utils.Result" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 <!doctype html>
@@ -36,11 +37,13 @@
                 outer.println("<div>" + dot.y + " </div>");
                 outer.println("<div>" + dot.r + " </div>");
                 String shoot = "Промах";
-                if (dot.shoot) {
+                if (dot.result == Result.HIT) {
                     shoot = "Попадание";
                     outer.println("<div class='success'>" + shoot + " </div>");
-                } else {
-                    outer.println("<div class='lose'>" + shoot + " </div>");
+                } else if (dot.result == Result.INCORRECT_DATA){
+                    outer.println("<div class='lose'>Incorrect Data</div>");
+                }else {
+                    outer.println("<div class='lose'>"+ shoot + "</div>");
                 }
                 outer.println("</div>");
             }

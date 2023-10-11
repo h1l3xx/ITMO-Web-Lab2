@@ -1,5 +1,7 @@
-package com.main.weblab2;
+package com.main.weblab2.servlets;
 
+import com.main.weblab2.utils.Dot;
+import com.main.weblab2.utils.Result;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,14 +23,18 @@ public class CheckAreaServlet extends HttpServlet {
         String y = request.getParameter("Y");
         String r = request.getParameter("R");
 
-        boolean result = false;
+        Result result = Result.MISS;
 
         if (validate(x, y, r)){
-            result = checker(Float.parseFloat(x), Float.parseFloat(y), Float.parseFloat(r));
+            if (checker(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r))){
+                result = Result.HIT;
+            }
+        }else{
+            result = Result.INCORRECT_DATA;
         }
 
         Dot dot = new Dot();
-        dot.setDot(Float.parseFloat(x), Float.parseFloat(y), Float.parseFloat(r), result);
+        dot.setDot(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r), result);
         list.add(dot);
 
         request.setAttribute("Dots", list);
@@ -36,16 +42,16 @@ public class CheckAreaServlet extends HttpServlet {
         response.getWriter().write(x + " " + y + " " + r + " " + setColor(result));
 
     }
-    private static boolean checkFirst(float x, float y, float r){
+    private static boolean checkFirst(double x, double y, double r){
         return x * x + y * y <= r * r;
     }
-    private static boolean checkFourth(float x, float y, float r){
+    private static boolean checkFourth(double x, double y, double r){
         return x - r / 2 - y <= 0;
     }
-    private static boolean checkThird(float x, float y, float r){
+    private static boolean checkThird(double x, double y, double r){
         return Math.abs(x) <= r && Math.abs(y) <= r / 2;
     }
-    private boolean checker(float x, float y, float r){
+    private boolean checker(double x, double y, double r){
         if (x >= 0 && y >= 0){
             return checkFirst(x, y, r);
         } else if (x >= 0 && y <= 0) {
@@ -58,17 +64,17 @@ public class CheckAreaServlet extends HttpServlet {
     }
     private static boolean validate(String x, String y, String r){
         try {
-            Float.parseFloat(x);
-            Float.parseFloat(y);
-            float R = Float.parseFloat(r);
+            Double.parseDouble(x);
+            Double.parseDouble(y);
+            double R = Double.parseDouble(r);
 
             return !(R <= 0);
         }catch (Exception e){
             return false;
         }
     }
-    private static String setColor(boolean result){
-        if (result) {
+    private static String setColor(Result result){
+        if (result == Result.HIT) {
             return "green";
         } else {
             return "red";
