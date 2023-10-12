@@ -34,7 +34,12 @@ public class CheckAreaServlet extends HttpServlet {
         }
 
         Dot dot = new Dot();
-        dot.setDot(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r), result);
+        if (result == Result.HIT || result == Result.MISS){
+            dot.setDot(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r), result);
+        }else{
+            dot.setDot(0, 0, 0, result);
+        }
+
         list.add(dot);
 
         request.setAttribute("Dots", list);
